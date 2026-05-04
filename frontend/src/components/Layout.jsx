@@ -37,17 +37,18 @@ function Layout() {
       <aside className="w-56 bg-gray-900 text-white flex flex-col">
 
         <div className="px-6 py-5 border-b border-gray-700">
-          <h1 className="text-lg font-bold">Gestión de proyectos</h1>
-          
+          <h1 className="text-lg font-bold">Gestión</h1>
+          <p className="text-xs text-gray-400">Proyectos</p>
         </div>
 
         <nav className="flex-1 px-3 py-4 flex flex-col gap-1">
+
+          {/* rutas visibles para todos */}
           {[
             { to: '/dashboard',     label: 'Dashboard',     icon: '📊' },
             { to: '/clientes',      label: 'Clientes',      icon: '🏢' },
             { to: '/colaboradores', label: 'Colaboradores', icon: '👥' },
             { to: '/proyectos',     label: 'Proyectos',     icon: '📁' },
-            { to: '/pagos',         label: 'Pagos',         icon: '💰' },
           ].map(({ to, label, icon }) => (
             <NavLink
               key={to}
@@ -62,18 +63,33 @@ function Layout() {
             </NavLink>
           ))}
 
+          {/* rutas solo admin */}
           {rol === 'admin' && (
-            <NavLink
-              to="/tipos-pago"
-              className={({ isActive }) =>
-                `px-3 py-2 rounded-lg text-sm transition flex items-center gap-2 ${
-                  isActive ? 'bg-blue-600 text-white' : 'text-gray-300 hover:bg-gray-800'
-                }`
-              }
-            >
-              <span>🏷️</span>Tipos de Pago
-            </NavLink>
+            <>
+              <NavLink
+                to="/pagos"
+                className={({ isActive }) =>
+                  `px-3 py-2 rounded-lg text-sm transition flex items-center gap-2 ${
+                    isActive ? 'bg-blue-600 text-white' : 'text-gray-300 hover:bg-gray-800'
+                  }`
+                }
+              >
+                <span>💰</span>Pagos
+              </NavLink>
+
+              <NavLink
+                to="/tipos-pago"
+                className={({ isActive }) =>
+                  `px-3 py-2 rounded-lg text-sm transition flex items-center gap-2 ${
+                    isActive ? 'bg-blue-600 text-white' : 'text-gray-300 hover:bg-gray-800'
+                  }`
+                }
+              >
+                <span>🏷️</span>Tipos de Pago
+              </NavLink>
+            </>
           )}
+
         </nav>
 
         {/* USUARIO */}
