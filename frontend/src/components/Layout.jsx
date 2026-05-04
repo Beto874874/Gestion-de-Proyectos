@@ -37,8 +37,8 @@ function Layout() {
       <aside className="w-56 bg-gray-900 text-white flex flex-col">
 
         <div className="px-6 py-5 border-b border-gray-700">
-          <h1 className="text-lg font-bold">Gestión</h1>
-          <p className="text-xs text-gray-400">Proyectos · Ejercicio 15</p>
+          <h1 className="text-lg font-bold">Gestión de proyectos</h1>
+          
         </div>
 
         <nav className="flex-1 px-3 py-4 flex flex-col gap-1">
