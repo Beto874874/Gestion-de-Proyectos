@@ -1,78 +1,125 @@
 # 📁 Sistema de Gestión de Proyectos — Ejercicio 15
-# JUAN ALBERTO TRUJILLO HERRERA - MARTÍN CAMILO CORREDOR PESCADOR
 
+**Autores:** JUAN ALBERTO TRUJILLO HERRERA & MARTÍN CAMILO CORREDOR PESCADOR  
 **Universidad Libre Seccional Pereira · Facultad de Ingeniería**
-**Programación II — Cliente/Servidor · Semestre 2026-1**
 
-Stack: React + Vite + TailwindCSS · Node.js + Express · MySQL · JWT + bcrypt
-
----
-
-## 🏗️ Arquitectura
-| Frontend (React/Vite) | Backend (Node/Express) | Base de Datos (MySQL) |
-| :--- | :--- | :--- |
-| `http://localhost:5173` | `http://localhost:5000` | `localhost:3306` |
----
-
-
-## 🔐 Credenciales de prueba
-
-| Usuario    | Contraseña| Rol     |
-|---------   |-----------|---------|
-| admin      | admin123  | admin   |
-| betolio    | 123456    | usuario |
+Este proyecto es una aplicación web full-stack para la gestión de proyectos, clientes, colaboradores y pagos, desarrollada para la asignatura de **Programación II (Cliente/Servidor)**.
 
 ---
 
-## 📡 Endpoints de la API
+## 🛠️ Stack Tecnológico
 
-| Método | URL                      | Descripción               | Rol mínimo |
-|--------|--------------------------|---------------------------|------------|
-| POST   | /api/auth/login          | Iniciar sesión            | —          |
-| POST   | /api/auth/register       | Crear usuario             | —          |
-| GET    | /api/dashboard           | Estadísticas generales    | usuario    |
-| GET    | /api/clientes            | Listar clientes           | usuario    |
-| POST   | /api/clientes            | Crear cliente             | admin      |
-| PUT    | /api/clientes/:id        | Actualizar cliente        | admin      |
-| DELETE | /api/clientes/:id        | Eliminar cliente          | admin      |
-| GET    | /api/colaboradores       | Listar colaboradores      | usuario    |
-| POST   | /api/colaboradores       | Crear colaborador         | admin      |
-| PUT    | /api/colaboradores/:id   | Actualizar colaborador    | admin      |
-| DELETE | /api/colaboradores/:id   | Eliminar colaborador      | admin      |
-| GET    | /api/proyectos           | Listar proyectos          | usuario    |
-| POST   | /api/proyectos           | Crear proyecto            | admin      |
-| PUT    | /api/proyectos/:id       | Actualizar proyecto       | admin      |
-| DELETE | /api/proyectos/:id       | Eliminar proyecto         | admin      |
-| GET    | /api/pagos               | Listar pagos              | usuario    |
-| POST   | /api/pagos               | Crear pago                | admin      |
-| PUT    | /api/pagos/:id           | Actualizar pago           | admin      |
-| DELETE | /api/pagos/:id           | Eliminar pago             | admin      |
-| GET    | /api/tipos-pago          | Listar tipos de pago      | usuario    |
-| POST   | /api/tipos-pago          | Crear tipo de pago        | admin      |
-| PUT    | /api/tipos-pago/:id      | Actualizar tipo de pago   | admin      |
-| DELETE | /api/tipos-pago/:id      | Eliminar tipo de pago     | admin      |
+**Frontend:**
+- React 19 (Vite)
+- TailwindCSS 4 (Estilizado moderno)
+- React Router Dom 7 (Navegación)
+- Axios (Peticiones HTTP)
+- SweetAlert2 (Alertas interactivas)
+
+**Backend:**
+- Node.js & Express 5
+- MySQL2 (Base de datos relacional)
+- JWT (JSON Web Tokens) & Bcrypt (Seguridad y Autenticación)
+- CORS & Dotenv
 
 ---
 
-### 📁 Estructura del Proyecto
-```text
+## 🏗️ Estructura del Proyecto
+
+```
 gestion-proyectos/
-├── frontend/
-│   └── src/
-│       ├── components/      # Layout y componentes reutilizables
-│       ├── context/         
-│       ├── hooks/           
-│       ├── pages/           # Vistas (Auth, Dashboard, Clientes, etc.)
-│       └── services/        # Consumo de APIs (Axios)
-├── backend/
-│   ├── config/              # Variables de entorno y ajustes globales
-│   ├── controllers/         # Lógica de las rutas (manejadores)
-│   ├── database/            # Conexión y configuración de la base de datos
-│   ├── middleware/          # Validaciones y seguridad (Auth, JWT)
-│   ├── models/              # Definición de estructuras de datos
-│   ├── routes/              # Definición de los endpoints de la API
-│   └── .env                 # Alamcenar variables de entorno
-├── database/
-│   ├── schema.sql           # Definición de tablas y relaciones
-│   └── seeds.sql            # Scripts de datos iniciales
+├── backend/                 # API REST (Node/Express)
+│   ├── config/              # Configuración de variables y servidor
+│   ├── controllers/         # Lógica de negocio (manejadores de rutas)
+│   ├── database/            # Conexión a MySQL
+│   ├── middleware/          # Protección de rutas (JWT)
+│   ├── models/              # Lógica de datos
+│   ├── routes/              # Definición de Endpoints
+│   └── index.js             # Punto de entrada del servidor
+├── frontend/                # Cliente (React/Vite)
+│   ├── src/
+│   │   ├── components/      # Componentes UI reutilizables
+│   │   ├── pages/           # Vistas principales (Login, Dashboard, etc.)
+│   │   ├── services/        # Configuración de Axios
+│   │   └── main.jsx         # Punto de entrada
+│   └── index.html
+├── database/                # Scripts SQL
+│   ├── schema.sql           # Estructura de tablas
+│   └── seeds.sql            # Datos de prueba
 └── README.md
+```
+
+---
+
+## 🚀 Configuración e Instalación
+
+### 1. Clonar el repositorio
+
+```bash
+git clone <url-del-repositorio>
+cd gestion-proyectos
+```
+
+### 2. Configurar el Backend
+
+Entra en la carpeta `backend`, instala las dependencias y configura las variables de entorno:
+
+```bash
+cd backend
+npm install
+```
+
+Crea un archivo `.env` en la raíz de la carpeta `backend` con lo siguiente:
+
+```
+PORT=5000
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=tu_contraseña
+DB_NAME=gestion_proyectos
+JWT_SECRET=tu_clave_secreta
+```
+
+Inicia el servidor en modo desarrollo:
+
+```bash
+npm run dev
+```
+
+### 3. Configurar el Frontend
+
+Entra en la carpeta `frontend` e instala las dependencias:
+
+```bash
+cd ../frontend
+npm install
+```
+
+Inicia la aplicación:
+
+```bash
+npm run dev
+```
+
+---
+
+## 📡 Endpoints Principales de la API
+
+| Método | Endpoint              | Descripción                  |
+|--------|-----------------------|------------------------------|
+| POST   | /api/auth/login       | Autenticación de usuario     |
+| GET    | /api/proyectos        | Listar todos los proyectos   |
+| POST   | /api/clientes         | Registrar nuevo cliente      |
+| GET    | /api/colaboradores    | Obtener lista de colaboradores |
+| POST   | /api/pagos            | Registrar un nuevo pago      |
+
+---
+
+## 🔐 Seguridad y Roles
+
+- **Autenticación:** Implementada con JWT almacenado en el cliente.
+- **Encriptación:** Las contraseñas se almacenan cifradas con bcrypt.
+- **Roles:** El sistema diferencia entre `admin` (gestión completa) y `usuario` (solo lectura/consultas).
+
+---
+
