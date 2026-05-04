@@ -30,7 +30,7 @@ Este proyecto es una aplicación web full-stack para la gestión de proyectos, c
 gestion-proyectos/
 ├── backend/                 # API REST (Node/Express)
 │   ├── config/              # Configuración de variables y servidor
-│   ├── controllers/         # Lógica de negocio (manejadores de rutas)
+│   ├── controllers/         # Lógica de negocio (manejadores de rutas y errores)
 │   ├── database/            # Conexión a MySQL
 │   ├── middleware/          # Protección de rutas (JWT)
 │   ├── models/              # Lógica de datos
@@ -60,7 +60,10 @@ git clone <url-del-repositorio>
 cd gestion-proyectos
 ```
 
-### 2. Configurar el Backend
+### 2. Confirgurar la bd
+Entra a la carpeta `database`, allí encontraras el script sql que deberas ejecutar en mysql, (recomendado en mysql workbench). Y encontraras otro archivo para sembrar los datos de prueba, ejecutalo también.
+
+### 3. Configurar el Backend
 
 Entra en la carpeta `backend`, instala las dependencias y configura las variables de entorno:
 
@@ -86,7 +89,7 @@ Inicia el servidor en modo desarrollo:
 npm run dev
 ```
 
-### 3. Configurar el Frontend
+### 4. Configurar el Frontend
 
 Entra en la carpeta `frontend` e instala las dependencias:
 
