@@ -20,6 +20,7 @@ export default function Dashboard() {
   const [stats, setStats]   = useState(null);
   const [usuario, setUsuario] = useState('');
   const [rol, setRol]       = useState('');
+  const [nombre, setNombre] = useState('');
 
   const token = localStorage.getItem('token');
 
