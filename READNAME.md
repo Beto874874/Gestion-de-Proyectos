@@ -56,21 +56,22 @@ Stack: React + Vite + TailwindCSS · Node.js + Express · MySQL · JWT + bcrypt
 
 ## 📂 Estructura del proyecto
 
+```text
 gestion-proyectos/
 ├── frontend/
 │   └── src/
-│       ├── components/   ← Layout
-│       ├── context/
-│       ├── hooks/
-│       ├── pages/        ← Auth, Dashboard, Clientes, Colaboradores, Proyectos, Pagos, TiposPago
-│       └── services/     ← authService, clientesService, colaboradoresService, proyectosService, pagosService
+│       ├── components/      # Layout y componentes reutilizables
+│       ├── context/         # Estado global de la aplicación
+│       ├── hooks/           # Custom hooks
+│       ├── pages/           # Vistas (Auth, Dashboard, Clientes, etc.)
+│       └── services/        # Consumo de APIs (Axios/Fetch)
 ├── backend/
-│   ├── controllers/
-│   ├── routes/
-│   ├── middleware/
-│   ├── models/
-│   └── config/
+│   ├── controllers/         # Lógica de las rutas
+│   ├── routes/              # Definición de endpoints
+│   ├── middleware/          # Validaciones y seguridad
+│   ├── models/              # Definición de esquemas o modelos
+│   └── config/              # Configuración de DB y variables
 ├── database/
-│   ├── schema.sql
-│   └── seeds.sql
+│   ├── schema.sql           # Estructura de tablas
+│   └── seeds.sql            # Datos de prueba iniciales
 └── README.md
