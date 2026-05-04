@@ -9,9 +9,9 @@ Stack: React + Vite + TailwindCSS · Node.js + Express · MySQL · JWT + bcrypt
 ---
 
 ## 🏗️ Arquitectura
-----------------------|-------------------------|-----------------------|
-Frontend (React/Vite) | Backend (Node/Express)  |Base de datos (MySQL)  |
-http://localhost:5173 |  http://localhost:5000  |   localhost:3306      |
+|-----------------------|------------------------|----------------------|
+| Frontend (React/Vite) | Backend (Node/Express) |Base de datos (MySQL) |
+| http://localhost:5173 | http://localhost:5000  |   localhost:3306     |
 
 ---
 
