@@ -106,6 +106,13 @@ npm run dev
 
 ---
 
+### 5. Ingreso
+
+Para entrar como admin esta configurado así:
+Usuario: admin contraseña: admin123
+
+Y para entrar como usuario se puede registrar.
+
 ## 📡 Endpoints Principales de la API
 
 | Método | Endpoint              | Descripción                  |
