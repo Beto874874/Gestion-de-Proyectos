@@ -1,6 +1,15 @@
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
 import Swal from 'sweetalert2';
+import {
+  LayoutDashboard,
+  Building2,
+  Users,
+  FolderKanban,
+  Wallet,
+  Tag,
+  LogOut
+} from 'lucide-react';
 
 function Layout() {
   const navigate = useNavigate();
@@ -45,10 +54,10 @@ function Layout() {
 
           {/* rutas visibles para todos */}
           {[
-            { to: '/dashboard',     label: 'Dashboard',     icon: '📊' },
-            { to: '/clientes',      label: 'Clientes',      icon: '🏢' },
-            { to: '/colaboradores', label: 'Colaboradores', icon: '👥' },
-            { to: '/proyectos',     label: 'Proyectos',     icon: '📁' },
+            { to: '/dashboard',     label: 'Dashboard',     icon: <LayoutDashboard size={16} /> },
+            { to: '/clientes',      label: 'Clientes',      icon: <Building2 size={16} /> },
+            { to: '/colaboradores', label: 'Colaboradores', icon: <Users size={16} /> },
+            { to: '/proyectos',     label: 'Proyectos',     icon: <FolderKanban size={16} /> },
           ].map(({ to, label, icon }) => (
             <NavLink
               key={to}
@@ -59,7 +68,7 @@ function Layout() {
                 }`
               }
             >
-              <span>{icon}</span>{label}
+              {icon}{label}
             </NavLink>
           ))}
 
@@ -74,7 +83,7 @@ function Layout() {
                   }`
                 }
               >
-                <span>💰</span>Pagos
+                <Wallet size={16} />Pagos
               </NavLink>
 
               <NavLink
@@ -85,7 +94,7 @@ function Layout() {
                   }`
                 }
               >
-                <span>🏷️</span>Tipos de Pago
+                <Tag size={16} />Tipos de Pago
               </NavLink>
             </>
           )}
@@ -107,9 +116,9 @@ function Layout() {
           </div>
           <button
             onClick={handleLogout}
-            className="w-full text-left px-3 py-2 text-sm text-gray-400 hover:text-red-400 hover:bg-gray-800 rounded-lg transition"
+            className="w-full text-left px-3 py-2 text-sm text-gray-400 hover:text-red-400 hover:bg-gray-800 rounded-lg transition flex items-center gap-2"
           >
-            🚪 Cerrar sesión
+            <LogOut size={16} />Cerrar sesión
           </button>
         </div>
 
